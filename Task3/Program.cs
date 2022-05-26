@@ -5,7 +5,7 @@ namespace Task3
 {
     class Program
     {
-        static Mutex mutex = new Mutex(true, "ThreadsTask3");
+        static Mutex mutex = new Mutex(true, "Rudniev.ThreadsTask3");
         static void Main(string[] args)
         {
             mutex.WaitOne();

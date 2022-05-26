@@ -12,19 +12,26 @@ namespace Task2
             Console.OutputEncoding = System.Text.Encoding.Unicode;
             Thread thread = new Thread(Function);
             thread.Start();
-            Thread.Sleep(500);
+
+            Thread.Sleep(1000);
 
             //Console.WriteLine("Нажмите на любую клавишу для перевода AutoResetEvent в сигнальное состояние.\n");
             //Console.ReadKey();
             if (flag)
+            {
+                Thread.Sleep(1);
                 auto.Set();
+            }
+
+            Thread.Sleep(1000);
 
             //Console.WriteLine("Нажмите на любую клавишу для перевода AutoResetEvent в сигнальное состояние.\n");
             //Console.ReadKey();
             if (flag)
+            {
+                Thread.Sleep(1);
                 auto.Set();
-
-            Console.ReadKey();
+            }
         }
 
         static void Function()

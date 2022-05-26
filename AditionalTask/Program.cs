@@ -23,11 +23,12 @@ namespace AditionalTask
         {
             semaphore.WaitOne();
             FileStream stream = File.Open("Threads.log", FileMode.Append);
-            StreamWriter writer = new StreamWriter(stream);
-            writer.WriteLine($"Thread {Thread.CurrentThread.Name} got access.");
-            Thread.Sleep(200);
-            writer.WriteLine($"Thread {Thread.CurrentThread.Name} --- work completed.");
-            writer.Close();
+            using (StreamWriter writer = new StreamWriter(stream))
+            {
+                writer.WriteLine($"Thread {Thread.CurrentThread.Name} got access.");
+                Thread.Sleep(100);
+                writer.WriteLine($"Thread {Thread.CurrentThread.Name} --- work completed.");
+            }
             semaphore.Release();
         }
     }
